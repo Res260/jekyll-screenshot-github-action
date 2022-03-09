@@ -29,4 +29,4 @@ ADD ./screenshot.py .
 ADD ./start.sh .
 WORKDIR /home/chrome
 
-CMD ["/home/chrome/start.sh"]
+CMD ["/bin/sh", "/home/chrome/start.sh"]

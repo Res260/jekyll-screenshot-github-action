@@ -1,4 +1,4 @@
 #!/bin/sh
 
 HOME=/home/chrome $@
-python ./screenshot.py
+python /home/chrome/screenshot.py

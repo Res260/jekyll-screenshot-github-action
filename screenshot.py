@@ -22,7 +22,7 @@ async def main():
     await browser.close()
     print(6, flush=True)
 
-with subprocess.Popen(['python', '-m', 'http.server'], cwd='/github/workspace', stdout=subprocess.PIPE, stderr=subprocess.STDOUT) as p:
+with subprocess.Popen(['python', '-m', 'http.server'], cwd='/github/workspace/_site', stdout=subprocess.PIPE, stderr=subprocess.STDOUT) as p:
     time.sleep(3.0)
     asyncio.get_event_loop().run_until_complete(main())
     p.kill()

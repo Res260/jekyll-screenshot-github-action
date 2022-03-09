@@ -4,7 +4,6 @@ RUN apt-get update && apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
-    jekyll \
     fonts-noto-color-emoji \
     gnupg \
     --no-install-recommends \
@@ -19,7 +18,6 @@ RUN apt install -y gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2
 RUN groupadd chrome && useradd --uid=1001 -g chrome -s /bin/bash -G audio,video chrome \
     && mkdir -p /home/chrome && chown -R chrome:chrome /home/chrome
 
-
 ADD ./requirements.txt .
 RUN python -m pip install -r requirements.txt
 
@@ -31,4 +29,4 @@ ADD ./screenshot.py .
 ADD ./start.sh .
 WORKDIR /home/chrome
 
-CMD ["/bin/sh", "/home/chrome/start.sh"]
+CMD ["/home/chrome/start.sh"]

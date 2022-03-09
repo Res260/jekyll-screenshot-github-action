@@ -24,13 +24,11 @@ ADD ./requirements.txt .
 RUN python -m pip install -r requirements.txt
 
 USER chrome
+RUN python -c '__import__("pyppeteer").chromium_downloader.download_chromium()'
 ENV HOME /home/chrome
 WORKDIR /home/chrome
 ADD ./screenshot.py .
-USER root
-ADD ./override-home.sh .
-RUN chmod +x ./override-home.sh
-USER chrome
-RUN python -c '__import__("pyppeteer").chromium_downloader.download_chromium()'
+ADD ./start.sh ./
+WORKDIR /home/chrome
 
-CMD ["/bin/sh", "/home/chrome/override-home.sh", "/home/chrome/screenshot.py"]
+CMD ["/home/chrome/start.sh"]

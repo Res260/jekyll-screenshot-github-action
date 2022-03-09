@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get update && apt-get install -y \
     google-chrome-stable \
     --no-install-recommends
+RUN apt-get install chromium-chromedriver
 
 # Google Chrome doesn't run from the root user.
 RUN groupadd chrome && useradd --uid=1001 -g chrome -s /bin/bash -G audio,video chrome \

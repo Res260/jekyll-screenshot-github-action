@@ -18,6 +18,6 @@ async def main():
     await browser.close()
 
 with subprocess.Popen(['jekyll', 'serve'], cwd='/github/workspace') as p:
-    time.sleep(3.0)
+    time.sleep(10.0)
     asyncio.get_event_loop().run_until_complete(main())
     p.kill()

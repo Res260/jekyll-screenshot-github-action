@@ -28,7 +28,7 @@ RUN python -c '__import__("pyppeteer").chromium_downloader.download_chromium()'
 ENV HOME /home/chrome
 WORKDIR /home/chrome
 ADD ./screenshot.py .
-ADD ./start.sh ./
+ADD ./start.sh .
 WORKDIR /home/chrome
 
-CMD ["/home/chrome/start.sh"]
+CMD ["/bin/sh", "/home/chrome/start.sh"]

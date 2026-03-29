@@ -1,13 +1,12 @@
 FROM python
 
 RUN apt-get update && apt-get install -y \
-    apt-transport-https \
     ca-certificates \
     curl \
     fonts-noto-color-emoji \
     gnupg \
     --no-install-recommends \
-    && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /etc/apt/trusted.gpg.d/google-chrome.gpg \
     && echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update && apt-get install -y \
     google-chrome-stable \

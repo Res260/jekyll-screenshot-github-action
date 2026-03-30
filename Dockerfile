@@ -23,8 +23,6 @@ RUN python -m pip install -r requirements.txt
 
 USER chrome
 
-RUN python -c '__import__("pyppeteer").chromium_downloader.download_chromium()'
-
 ENV HOME /home/chrome
 WORKDIR /home/chrome
 
